@@ -21,4 +21,13 @@ describe('Cohort Manager', () => {
       'No cohort name given'
     )
   })
+
+  it('should remove a named cohort', () => {
+    const cohortName = 'cohort 1'
+    cohortManager.createCohort(cohortName)
+
+    const result = cohortManager.removeByName(cohortName)
+
+    expect(cohortManager.cohorts.length).toEqual(0)
+  })
 })
