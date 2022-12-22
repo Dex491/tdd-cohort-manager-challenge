@@ -15,4 +15,10 @@ describe('Cohort Manager', () => {
 
     expect(cohort.name).toEqual(cohortName)
   })
+
+  it('should throw an error if no name is given when a cohort is created', () => {
+    expect(() => cohortManager.createCohort(null)).toThrowError(
+      'No cohort name given'
+    )
+  })
 })
