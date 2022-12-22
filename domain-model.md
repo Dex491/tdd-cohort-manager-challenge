@@ -4,7 +4,7 @@
 | ------- | ---------- | -------- | ----- | -------- | ------ |
 | CohortManager - class | cohorts [Cohort] | createCohort() | String: cohortName | Given input already exists | return null/throw error 'given name already exists, choose another'
 ||||| No input given | return null/throw error 'no name given'
-||||| Given input doesn't already exist | Creates a new cohort with given input as name (in an array called cohorts?)
+||||| Given input doesn't already exist | Creates a new cohort with given input as name (in an array called cohorts)
 ||| searchByName() | String: cohortName | Given input doesn't exist | return null/throw error 'given name cannot be found'
 ||||| No input given | return null/throw error 'no name given'
 ||||| Given input exists | return cohort (object?)
