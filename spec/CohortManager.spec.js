@@ -29,5 +29,6 @@ describe('Cohort Manager', () => {
     const result = cohortManager.removeByName(cohortName)
 
     expect(cohortManager.cohorts.length).toEqual(0)
+    expect(result).toBe(true)
   })
 })
