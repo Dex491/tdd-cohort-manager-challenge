@@ -1,4 +1,5 @@
 const Cohort = require('./Cohort')
+const Student = require('./Student')
 
 class CohortManager {
   constructor() {
@@ -24,6 +25,26 @@ class CohortManager {
       i++
     })
     return removed
+  }
+
+  getCohort(cohortName) {
+    this.cohorts.forEach((cohort) => {
+      if (cohort.name === cohortName) return cohort
+    })
+    return null
+  }
+
+  addStudentToCohort(cohortName, firstName, lastName, email, github) {
+    const cohort = this.getCohort(cohortName)
+    let student = null
+
+    if (cohort) {
+      this.previousId += 1
+      student = new Student(this.previousId, firstName, lastName, email, github)
+      if (!cohort.addStudent(student)) student = null
+      else this.previousId -= 1
+    }
+    return student
   }
 }
 

@@ -31,4 +31,24 @@ describe('Cohort Manager', () => {
     expect(cohortManager.cohorts.length).toEqual(0)
     expect(result).toBe(true)
   })
+
+  it('should add a student to an existing cohort', () => {
+    const cohortName = 'cohort 1'
+    const cohort = cohortManager.createCohort(cohortName)
+
+    const student = cohortManager.addStudentToCohort(
+      cohortName,
+      'Dave',
+      'Revell',
+      'DaveRevell@example.com',
+      'Dex491'
+    )
+
+    expect(student).not.toBeNull()
+    expect(student.firstName).toEqual('Dave')
+    expect(student.lastName).toEqual('Revell')
+
+    expect(cohort.students.length).toBe(1)
+    expect(cohort.students.toEqual([student]))
+  })
 })
